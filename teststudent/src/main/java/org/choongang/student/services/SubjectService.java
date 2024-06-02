@@ -11,26 +11,26 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SubjectService implements Service<List<Subject>> {
     private final SubjectMapper mapper;
-/*
-    @Override
-    public void process(RequestSubject form) {
-        System.out.println("SubjectService-process()");
 
-        Subject subject = mapper.get(form.getSubCode());
-        System.out.println(subject.getSubNm());
-    }
+//    @Override
+//    public List<Subject> process(RequestSubject form) {
+//        System.out.println("SubjectService-process()");
+//        return mapper.getList(form.getSubCode());
+//    }
 
 
-
-    @Override
-    public void process(List<Subject> form) {
-        Subject subject = mapper.get(form.getSubCode());
-        System.out.println(subject.getSubNm());
-    }
- */
     @Override
     public List<Subject> process() {
-        System.out.println("SubjectService-process()");
-        return mapper.getListAll();
+        System.out.println("**SubjectService-process()");
+        return mapper.getSubject();
+
     }
+
+    /*
+        @Override
+    public List<Rank> process() {
+
+        return mapper.getSubject();
+    }
+     */
 }

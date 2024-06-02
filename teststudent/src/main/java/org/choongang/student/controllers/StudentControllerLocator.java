@@ -21,7 +21,7 @@ public class StudentControllerLocator extends AbstractControllerLocator {
 
     @Override
     public Controller find(Menu menu) {
-        System.out.println("StudentControllerLocator-find() 매개변수 menu :" + menu);
+        System.out.println("**StudentControllerLocator-find(" + menu + ")");
         Controller controller = controllers.get(menu);
         if (controller != null) {
             return controller;

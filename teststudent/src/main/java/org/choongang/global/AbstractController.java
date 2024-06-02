@@ -20,8 +20,8 @@ public abstract class AbstractController implements Controller {
      * 상단 공통 출력 부분
      */
     public void common() {
-        //System.out.println("묵찌빠 게임 Ver1.0");
-        //System.out.println(Templates.getInstance().doubleLine());
+        System.out.println("학생 성적관리 프로그램 Ver1.0");
+        System.out.println(Templates.getInstance().doubleLine());
     }
 
     /**
@@ -75,7 +75,7 @@ public abstract class AbstractController implements Controller {
     }
 
     private void change(int menuNo) {
-        System.out.println("*** AbstractController-change(" + menuNo + ")");
+        System.out.println("**AbstractController-change(" + menuNo + ")");
         MainMenu mainMenu = null;
         if (MemberSession.isLogin()) { // 로그인 상태인 경우
             switch (menuNo) {

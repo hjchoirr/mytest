@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class SubjectsController extends AbstractController {
     @Override
     public void show() {
-        System.out.println("SubjectsController-show()");
+        System.out.println("**SubjectsController-show()");
         Templates.getInstance().render(StudentMenu.SUBJECTS);
     }
     @Override
