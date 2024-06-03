@@ -35,9 +35,9 @@ public class StudentServiceLocator extends AbstractServiceLocator {
         if (menu instanceof StudentMenu) { // 과목, 학생, 성적
             StudentMenu studentMenu = (StudentMenu)menu;
             switch (studentMenu) {
-                case SUBJECTS: service = new SubjectService(SubjectMapper()); break;
+                case SUBJECTS: service = new SubjectServiceList(SubjectMapper()); break;
                 case STUDENTS:
-                case SCORES: service = new SubjectService(SubjectMapper()); break;
+                case SCORES: service = new SubjectServiceList(SubjectMapper()); break;
             }
 
         } else { // 주메뉴
@@ -48,4 +48,31 @@ public class StudentServiceLocator extends AbstractServiceLocator {
 
         return service;
     }
+    public Service findUpdate(Menu menu) {
+        System.out.println("**StudentServiceLocator-findUpdate(" + menu + ")");
+        /*
+        Service service = services.get(menu);
+        if (service != null) {
+            return service;
+        }
+         */
+        Service service = null;
+        if (menu instanceof StudentMenu) { // 과목, 학생, 성적
+            StudentMenu studentMenu = (StudentMenu)menu;
+            switch (studentMenu) {
+                case SUBJECTS: service = new SubjectServiceUpdate(SubjectMapper()); break;
+                case STUDENTS:
+                case SCORES: service = new SubjectServiceUpdate(SubjectMapper()); break;
+            }
+
+        } else { // 주메뉴
+
+        }
+
+        //services.put(menu, service);
+
+        return service;
+    }
+
+
 }

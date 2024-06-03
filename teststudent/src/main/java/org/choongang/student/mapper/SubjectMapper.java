@@ -1,4 +1,5 @@
 package org.choongang.student.mapper;
+import org.choongang.member.entities.Member;
 import org.choongang.student.controllers.SearchSubject;
 import org.choongang.student.entities.Subject;
 
@@ -8,5 +9,6 @@ public interface SubjectMapper {
 
     List<Subject> getSubject();
     Subject get(long subCode);
+    int modify(Subject subject);
 
 }

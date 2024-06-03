@@ -23,6 +23,23 @@
     <!-- 과목 목록 조회 -->
     <select id="getSubject" resultMap="subjectMap">
         SELECT * FROM (SELECT ROWNUM NUM, t.* FROM SUBJECT t) m
-        ORDER BY m.SUB_NM DESC
+        ORDER BY m.SUB_CODE ASC
     </select>
+    <!-- 과목 정보 수정 -->
+    <update id="modify">
+        UPDATE SUBJECT
+        <set>
+            <if test="subNm != null">
+                SUB_NM=#{subNm},
+            </if>
+            <if test="subNm != null">
+                TEACHER_NM=#{teacherNm},
+            </if>
+            <if test="subNm != null">
+                SUB_DIV=#{subDiv}
+            </if>
+        </set>
+        WHERE SUB_CODE=#{subCode}
+    </update>
+
 </mapper>

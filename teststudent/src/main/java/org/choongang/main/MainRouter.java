@@ -4,18 +4,19 @@ import org.choongang.game.controllers.GameControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
+import org.choongang.global.Startable;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
 import org.choongang.member.controllers.MemberControllerLocator;
 import org.choongang.student.controllers.StudentControllerLocator;
 
-public class MainRouter implements Router {
+public class MainRouter implements Router, Startable {
 
-    private static Router instance;
+    private static MainRouter instance;
 
     private MainRouter() {}
 
-    public static Router getInstance() {
+    public static MainRouter getInstance() {
         if (instance == null) {
             instance = new MainRouter();
         }

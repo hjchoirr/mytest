@@ -32,11 +32,13 @@ public class GameServiceLocator extends AbstractServiceLocator {
         }
 
         if (menu instanceof GameMenu) { // 혼자하기, 같이하기, 순위보기
-            GameMenu gameMenu = (GameMenu)menu;
+            GameMenu gameMenu = (GameMenu) menu;
             switch (gameMenu) {
                 case ALONE:
                 case TOGETHER:
-                case RANKING: service = new RankingInfoService(pointLogMapper()); break;
+                case RANKING:
+                    service = new RankingInfoService(pointLogMapper());
+                    break;
             }
 
         } else { // 주메뉴
@@ -46,5 +48,10 @@ public class GameServiceLocator extends AbstractServiceLocator {
         services.put(menu, service);
 
         return service;
+    }
+
+    @Override
+    public Service findUpdate(Menu menu) {
+        return null;
     }
 }
