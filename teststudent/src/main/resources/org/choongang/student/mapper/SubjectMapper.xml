@@ -21,7 +21,7 @@
     </select>
 
     <!-- 과목 목록 조회 -->
-    <select id="getSubject" resultMap="subjectMap">
+    <select id="getSubject" resultMap="subjectMap" useCache="false">
         SELECT * FROM (SELECT ROWNUM NUM, t.* FROM SUBJECT t) m
         ORDER BY m.SUB_CODE ASC
     </select>

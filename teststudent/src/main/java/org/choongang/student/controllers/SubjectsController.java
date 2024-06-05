@@ -32,7 +32,8 @@ public class SubjectsController extends AbstractController {
                 .collect(Collectors.joining("\n"));
 
         Templates.getInstance().render(StudentMenu.SUBJECTS, () -> subjecting);
-        System.out.println("수정이나 삭제할 과목?");
+        System.out.println();
+        System.out.println("위의 목록에서 수정할 과목을 고르세요");
         
         int subCode = Integer.parseInt(promptWithValidation("과목코드: ", s -> !s.isBlank()));
         String subNm = promptWithValidation("과목명: ", s -> !s.isBlank());
@@ -45,29 +46,18 @@ public class SubjectsController extends AbstractController {
                 .teacherNm(teacherNm)
                 .subDiv(subDiv)
                 .build();
-
-
-        // 과목리스트 출력 후 학생관리 메뉴 이동
-        //MainRouter.getInstance().change(MainMenu.STUDENT);
-
-
-
-        //Router router = MainRouter.getInstance();
         try {
-            System.out.println("여기여기1");
 
             Service  service1 = StudentServiceLocator.getInstance().findUpdate(StudentMenu.SUBJECTS);
             service1.process(form);
 
-            System.out.println("여기여기2");
-            Templates.getInstance().render(StudentMenu.SUBJECTS);
-            //router.change(StudentMenu.SUBJECTS); // 과목 수정 삭제 성공시 -> 과목관리페이지
         } catch (RuntimeException e) {
 
             System.err.println(e.getMessage());
-            Templates.getInstance().render(StudentMenu.SUBJECTS);
-            //router.change(MainMenu.LOGIN); // 로그인 실패시 -> 로그인 페이지
         }
+
+        System.out.println("**SubjectsController-prompt() 끝");
+        MainRouter.getInstance().change(MainMenu.STUDENT);
     }
 
 }
